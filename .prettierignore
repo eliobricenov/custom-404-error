@@ -1,0 +1,6 @@
+.next
+./content
+node_modules
+out
+public
+README.md
