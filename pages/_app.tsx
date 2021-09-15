@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
+import App, { AppContext, AppProps } from "next/app";
 import theme from "../src/theme";
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
 
@@ -39,3 +39,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
+
+MyApp.getInitialProps = async (context: AppContext) => {
+	const appProps = await App.getInitialProps(context);
+
+	return {
+		...appProps,
+	};
+};
